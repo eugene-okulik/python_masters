@@ -1,2 +1,2 @@
-name = 'Eugene'
-print(f'hello {name}')
+name = 'Eugene!'
+print(f'Hello {name}')
