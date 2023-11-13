@@ -7,3 +7,4 @@ print(f"Arithmetic average of  {x} and {y} is {(x+y)/2}")
 print(f"Geometrical average of  {x} and {y} is {math.sqrt(x*y)}")
 
 
+
