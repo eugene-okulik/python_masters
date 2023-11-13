@@ -21,7 +21,6 @@ if __name__ == '__main__':
     target: int = random.randint(1, 50)
     print(
         "List: {}\nTarget: {}\nIndex: {}".format(
-            rand_num_li, target,binarySearch(rand_num_li, 0, len(rand_num_li) - 1, target)
+            rand_num_li, target, binarySearch(rand_num_li, 0, len(rand_num_li) - 1, target)
         )
     )
-
