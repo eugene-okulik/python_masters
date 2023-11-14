@@ -9,9 +9,9 @@ def binary_search(arr: List[int], lb: int, ub: int, target: int) -> int:
         if arr[mid] == target:
             return mid
         elif arr[mid] < target:
-            return binarySearch(arr, mid + 1, ub, target)
+            return binary_search(arr, mid + 1, ub, target)
         else:
-            return binarySearch(arr, lb, mid - 1, target)
+            return binary_search(arr, lb, mid - 1, target)
     else:
         return -1
 
@@ -21,6 +21,6 @@ if __name__ == '__main__':
     target_: int = random.randint(1, 50)
     print(
         "List: {}\nTarget: {}\nIndex: {}".format(
-            rand_num_li, target, binarySearch(rand_num_li, 0, len(rand_num_li) - 1, target_)
+            rand_num_li, target_, binary_search(rand_num_li, 0, len(rand_num_li) - 1, target_)
         )
     )
