@@ -1,6 +1,6 @@
 from math import *
 
-a = 3
+a = 2
 b = 4
 c = (sqrt((a**2) + (b**2)))
 print("Hypotenuse equals to:", c)

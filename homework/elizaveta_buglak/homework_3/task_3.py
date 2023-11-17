@@ -1,6 +1,6 @@
 from math import *
 
-a = 5
+a = 6
 b = 10
 
 print('arithmetic average=', (a + b)/2)
