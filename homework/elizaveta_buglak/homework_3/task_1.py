@@ -1,8 +1,6 @@
 a = 105.25
 b = 45.8
-summa = a + b
-print("Сумма равняется:", summa)
-sub = a - b
-print("Разность равняется:", sub)
-mult = a * b
-print("Произведение равно:", mult)
+
+print("Sum of numbers will be:", a + b)
+print("Subtraction of numbers will be:", a - b)
+print("Multiplication of numbers will be:", a * b)
