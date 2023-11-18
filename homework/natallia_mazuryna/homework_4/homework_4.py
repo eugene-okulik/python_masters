@@ -1,11 +1,11 @@
-final_text = ''' 
+final_text = '''
 Hello {}! You're out of money to buy a {} :(
 You need {} dollars more
 Possibility to complete this purchase: {}.
 {} months left to complete this purchase
 '''
 
-final_lucky_text = ''' 
+final_lucky_text = '''
 Hello {}! You can afford to buy a {}!
 Possibility to complete this purchase: {}
 Congratulations!
