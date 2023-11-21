@@ -2,7 +2,7 @@ import random
 from typing import List
 
 
-def binarySearch(arr: List[int], lb: int, ub: int, target: int) -> int:
+def binarysearch(arr: List[int], lb: int, ub: int, target: int) -> int:
     """A Binary Search Example which has O(log n) time complexity."""
     if lb <= ub:
         mid: int = lb + (ub - lb) // 2
