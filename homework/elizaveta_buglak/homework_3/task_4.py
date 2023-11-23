@@ -1,8 +1,8 @@
-import math
+from math import sqrt
 
 a = 2
 b = 3
-c = (math.sqrt((a ** 2) + (b ** 2)))
+c = sqrt(a**2 + b**2)
 print("Hypotenuse equals to:", c)
-s = 1/2 * (a * b)
+s = ((a * b) / 2)
 print("The area of the triangle will be:", s)
