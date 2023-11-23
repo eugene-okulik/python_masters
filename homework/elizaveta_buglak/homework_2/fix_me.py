@@ -22,3 +22,4 @@ if __name__ == '__main__':
     print("List: {}\nTarget: {}\nIndex: {}".format(
         rand_num_li, target,
         binary_search(rand_num_li, 0, len(rand_num_li) - 1, target)))
+    
