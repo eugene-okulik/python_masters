@@ -15,8 +15,8 @@ import sys
 cost_purchase = 1000000
 amount_save = 5000
 
-name = input('What is your name?')
-print(f'Hello, {name}!')
+username = input('What is your name?')
+print(f'Hello, {username}!')
 
 purchase = input('What do you want to buy?')
 
