@@ -37,9 +37,9 @@ if cost_purchase > amount_money:
     buy_purchase = False
     print('Possibility of making purchase:', buy_purchase)
     if save_money == amount_save:
-        print((int(cost_purchase/amount_save)), 'months left before purchase')
+        print((int(cost_purchase / amount_save)), 'months left before purchase')
     elif amount_save > save_money:
         print(f'You need to save {amount_save} every month if you want to buy this car in',
-              (int(cost_purchase/amount_save)), 'months')
+              (int(cost_purchase / amount_save)), 'months')
     else:
         print('I don\'t understand you')
