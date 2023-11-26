@@ -20,7 +20,7 @@ del my_dict["list"][1]
 # Для того, что хранится под ключом ‘dict’:
 # добавьте элемент с ключом ('i am a tuple',) и любым значением
 # удалите какой-нибудь элемент
-my_dict["dict"].update({('i am a tuple',): (2, -1)})
+my_dict["dict"].update({("i am a tuple",): (2, -1)})
 del my_dict["dict"]["city"]
 
 # Для того, что хранится под ключом ‘set’:
