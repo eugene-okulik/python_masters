@@ -16,8 +16,4 @@ my_dict['dict'].pop('key3')
 my_dict['set'].add(6)
 my_dict['set'].remove(3)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d0942a26667cc1d133982dc1feb2d225a6286edd
 print(my_dict)
