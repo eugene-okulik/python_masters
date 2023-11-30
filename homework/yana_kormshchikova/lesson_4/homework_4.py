@@ -14,3 +14,4 @@ else:
           f"For now you can't buy {items}. "
           f"You need {price - savings} more. "
           f"You need to save for another {((price - savings) // monthly_save)} months to buy")
+
