@@ -8,7 +8,7 @@ print(my_dict['tuple'][-1])
 my_dict['list'].append(6)
 del my_dict['list'][1]
 
-my_dict['dict'][('i am a tuple')] = 'new test'
+my_dict['dict']['i am a tuple', ] = 'new test'
 del my_dict['dict']['key3']
 
 my_dict['set'].add(6)
