@@ -16,7 +16,7 @@ def binary_search(arr: List[int], lb: int, ub: int, target: int) -> int:
         return -1
 
 
-"""""""
+""""""
 
 if __name__ == '__main__':
     rand_num_li: List[int] = sorted([random.randint(1, 50) for _ in range(10)])
