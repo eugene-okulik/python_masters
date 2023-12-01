@@ -2,20 +2,17 @@
 
 person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
 
-name = person[0]
-last_name = person[1]
-city = person[2]
-phone = person[3]
-country = person[4]
-
-print(f'My name is {name} {last_name}. My phone number is {phone}. I live in {city}, {country}.')
+name, last_name, city, phone, country = person
 
 # Задание 2
 
-# str1 = 'результат операции: 42'
-# str2 = 'результат работы программы: 547'
-# str3 = 'результат: 5'
+str1 = 'результат операции: 42'
+str2 = 'результат работы программы: 547'
+str3 = 'результат: 5'
 
+print(int((str1[20:])) + 10)
+print(int(str2[27:]) + 10)
+print(int(str3[11:]) + 10)
 
 
 # Задание 3
