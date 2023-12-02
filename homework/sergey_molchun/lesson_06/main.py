@@ -20,7 +20,7 @@ string3 = "результат: 5"
 
 # TODO: String #1
 separator = string1.index(':')
-operation_result = int(string1[separator + 1:]) #- решение исходя из курса урока
+operation_result = int(string1[separator + 1:])  # - решение исходя из курса урока
 print(operation_result + 10)
 
 operation_result2 = int(string1[-2:]) + 10  # более короткое решение
@@ -28,15 +28,15 @@ print(operation_result2)
 
 # TODO: String #2
 separator = string2.index(':')
-work_result1 = int(string2[separator + 1:]) + 10 #- решение исходя из курса урока
+work_result1 = int(string2[separator + 1:]) + 10  # - решение исходя из курса урока
 print(work_result1)
 
 work_result2 = int(string2[-3:]) + 10  # более короткое решение
 print(work_result2)
 
 # TODO: String #3
-separator = string3.index(':') #- решение исходя из курса урока
-result1 = int(string3[separator + 1:]) + 10 #- решение исходя из курса урока
+separator = string3.index(':')  # - решение исходя из курса урока
+result1 = int(string3[separator + 1:]) + 10  # - решение исходя из курса урока
 print(result1)
 
 result2 = int(string3[-1:]) + 10  # более короткое решение
