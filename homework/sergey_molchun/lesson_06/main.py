@@ -4,14 +4,9 @@
 person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
 
 # С помощью распаковки создайте из этого списка переменные, содержащие соответствующие данные:
-# name, last_name, city, phone, country
+name, last_name, city, phone, country = person
 
-name = person[0]
-last_name = person[1]
-city = person[2]
-phone = person[3]
-country = person[4]
-print(name, last_name, city, phone, country)
+print(f"Name:{name}, Last Name:{last_name}, City:{city}, Phone:{phone}, Country:{country}")
 
 # Задание 2
 # Допустим, какая-то программа возвращает результат своей работы в таком виде:
@@ -23,20 +18,29 @@ string3 = "результат: 5"
 # С помощью срезов и метода index получите из каждой строки с результатом число, прибавьте к полученному числу 10,
 # результат сложения распечатайте.
 
-# operation_result = string1.index('42')
-# operation_result = int(string1[20:]) - решение исходя из курса урока
-operation_result = int(string1[-2:]) + 10  # более короткое решение
-print(operation_result)
+# TODO: String #1
+separator = string1.index(':')
+operation_result = int(string1[separator + 1:]) #- решение исходя из курса урока
+print(operation_result + 10)
 
-# work_result = string2.index('547')
-# work_result = int(string2[28:]) - решение исходя из курса урока
-work_result = int(string2[-3:]) + 10  # более короткое решение
-print(work_result)
+operation_result2 = int(string1[-2:]) + 10  # более короткое решение
+print(operation_result2)
 
-# result = string3.index('5') #- решение исходя из курса урока
-# result = int(string3[11:]) #- решение исходя из курса урока
-result = int(string3[-1:]) + 10  # более короткое решение
-print(result)
+# TODO: String #2
+separator = string2.index(':')
+work_result1 = int(string2[separator + 1:]) + 10 #- решение исходя из курса урока
+print(work_result1)
+
+work_result2 = int(string2[-3:]) + 10  # более короткое решение
+print(work_result2)
+
+# TODO: String #3
+separator = string3.index(':') #- решение исходя из курса урока
+result1 = int(string3[separator + 1:]) + 10 #- решение исходя из курса урока
+print(result1)
+
+result2 = int(string3[-1:]) + 10  # более короткое решение
+print(result2)
 
 # Задание 3
 # Даны такие списки:
