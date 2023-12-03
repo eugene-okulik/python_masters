@@ -10,7 +10,7 @@ print(my_dict['tuple'][-1])
 my_dict['list'].append(10)
 my_dict['list'].remove(5)
 
-my_dict['dict']['i am a tuple'] = 'no'
+my_dict['dict'][('i am a tuple',)] = 'no'
 my_dict['dict'].pop('key3')
 
 my_dict['set'].add(6)
