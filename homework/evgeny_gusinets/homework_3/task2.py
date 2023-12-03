@@ -3,4 +3,4 @@ y = 4
 
 R = (x - y) / (1 + x * y)
 
-print("Результат: ", R)
+print("Result: ", R)
