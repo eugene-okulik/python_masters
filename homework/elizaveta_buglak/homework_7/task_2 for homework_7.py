@@ -1,10 +1,10 @@
-for number in range(1, 101):
-    if number % 3 == 0:
+for num1 in range(1, 101):
+    if num1 % 3 == 0:
         print('Fuzz')
-    elif number % 5 == 0:
+    elif num1 % 5 == 0:
         print('Buzz')
-    elif number % 5 == 0 and number % 3 == 0:
+    elif num1 % 5 == 0 and num1 % 3 == 0:
         print('Fuzzbuzz')
     else:
-        print(number)
+        print(num1)
         
