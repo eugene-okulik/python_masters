@@ -2,7 +2,6 @@ import sys
 
 sys.set_int_max_str_digits(150000)
 
-
 # TODO: Напишите функцию-генератор, которая генерирует список чисел фибоначчи
 #  Распечатайте из этого списка пятое число, двухсотое число, тысячное число, стотысячное число
 
@@ -33,6 +32,7 @@ for x in fibonacci_generator():
             break
     counter += 1
 
+
 # TODO: Alternative way to calculate Fibonacci:
 
 def fibonacci_iterative(n):
@@ -40,6 +40,7 @@ def fibonacci_iterative(n):
     for _ in range(n):
         a, b = b, a + b
     return a
+
 
 result = fibonacci_iterative(100000)
 print(f"Alternative way 100000th: {result}")
