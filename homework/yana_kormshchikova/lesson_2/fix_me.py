@@ -28,3 +28,4 @@ if __name__ == '__main__':
             rand_num_li, 0, len(rand_num_li) - 1, target)
     )
     )
+
