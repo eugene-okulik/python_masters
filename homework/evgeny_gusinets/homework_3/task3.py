@@ -1,12 +1,12 @@
+"""
+Simple arithmetic and geometric averages.
+"""
 
-a = 5
-b = 3
+A = 5
+B = 3
 
+ARITHMETIC_MEAN = (A + B) / 2
+GEOMETRIC_MEAN = (A * B) ** 0.5
 
-Ar = (a + b) / 2
-
-
-Geo = (a * b) ** 0.5
-
-print("Среднее арифметическое: ", Ar)
-print("Среднее геометрическое: ", Geo)
+print("Среднее арифметическое: ", ARITHMETIC_MEAN)
+print("Среднее геометрическое: ", GEOMETRIC_MEAN)

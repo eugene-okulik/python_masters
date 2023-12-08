@@ -1,11 +1,15 @@
-a = 3
-b = 4
+"""
+Calculation of the hypotenuse and area of a right-angled triangle.
+"""
 
-# Нахождение гипотенузы с использованием теоремы Пифагора
-G = (a**2 + b**2)**0.5
+A = 3
+B = 4
 
-# Нахождение площади прямоугольного треугольника
-S = (a * b) / 2
+# Finding the hypotenuse using the Pythagorean theorem
+HYPOTENUSE = (A**2 + B**2)**0.5
 
-print("Гипотенуза: ", G)
-print("Площадь: ", S)
+# Finding the area of a right-angled triangle
+AREA = (A * B) / 2
+
+print("Гипотенуза: ", HYPOTENUSE)
+print("Площадь: ", AREA)

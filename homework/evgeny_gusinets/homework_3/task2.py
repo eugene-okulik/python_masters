@@ -1,6 +1,10 @@
-x = 31
-y = 4
+"""
+Simple arithmetic expression.
+"""
 
-R = (x - y) / (1 + x * y)
+X = 31
+Y = 4
 
-print("Результат: ", R)
+RESULT = (X - Y) / (1 + X * Y)
+
+print("Результат: ", RESULT)

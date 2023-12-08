@@ -1,12 +1,16 @@
-a = 60
-b = 4
+"""
+Simple arithmetic operations.
+"""
 
-S = a+b
-R = a-b
-P = a*b
-D = a/b
+A = 60
+B = 4
 
-print("Сумма: ", S)
-print("Разность: ", R)
-print("Произведение: ", P)
-print("Деление: ", D)
+SUM = A + B
+DIFFERENCE = A - B
+PRODUCT = A * B
+QUOTIENT = A / B
+
+print("Сумма: ", SUM)
+print("Разность: ", DIFFERENCE)
+print("Произведение: ", PRODUCT)
+print("Деление: ", QUOTIENT)
