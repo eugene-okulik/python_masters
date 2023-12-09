@@ -18,12 +18,7 @@ print(my_dict['list'])
 # Для того, что хранится под ключом ‘dict’:добавьте элемент с ключом ('i am a tuple',) и любым значением
 # удалите какой-нибудь элемент
 
-c['i am a tuple'] = 'any'
-print(my_dict['dict'])
-del c['one']
-print(my_dict['dict'])
-
-# Для того, что хранится под ключом ‘set’: добавьте новый элемент в множество, удалите элемент из множества
+my_dict['dict'][('i am a tuple',)] = 'any value'
 
 e.add('name')
 print(my_dict['set'])
