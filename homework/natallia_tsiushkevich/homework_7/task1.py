@@ -3,9 +3,9 @@ text = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel.'
 add = 'ing'
 words = text.split()
 for word in words:
-        if word.endswith(','):
-                word.replace(',', '')  # как удалить запятые?
+    if word.endswith(','):
+        word = word.strip(',')
 new_text = [word + add for word in words]
-# добавить запятые как?
-sentence = " ".join(new_text)
+sentence = ", ".join(new_text)
 print(sentence)
+# не знаю как убрать и потом расставить запятыев нужных местах
