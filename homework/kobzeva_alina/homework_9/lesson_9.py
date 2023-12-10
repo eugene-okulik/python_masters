@@ -6,8 +6,8 @@ def fibonacci():
         a, b = b, a + b
         yield b
 
-fib = fibonacci()
 
+fib = fibonacci()
 
 for i in range(5):
     next(fib)
@@ -29,4 +29,3 @@ print("Fifth Fibonacci number:", fifth)
 print("Two hundredth Fibonacci number:", two_hundredth)
 print("Thousandth Fibonacci number:", thousandth)
 print("Hundred thousandth Fibonacci number:", hundred_thousandth)
-
