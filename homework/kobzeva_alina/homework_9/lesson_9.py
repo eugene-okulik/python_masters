@@ -8,6 +8,7 @@ def fibonacci():
 
 fib = fibonacci()
 
+
 for i in range(5):
     next(fib)
 fifth = next(fib)
