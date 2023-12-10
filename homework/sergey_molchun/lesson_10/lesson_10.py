@@ -20,7 +20,7 @@ def high_temp(x):
 
 hot_days_maped = list(map(high_temp, temperatures))
 
-print(f"Map new list:", higher_temps)
+print(f"Map new list: {higher_temps}")
 # print(f"Map original list:", hot_days_maped)
 
 # Распечатайте из нового списка самую высокую температуру самую низкую и среднюю.
