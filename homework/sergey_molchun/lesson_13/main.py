@@ -55,7 +55,7 @@ library = [book1, book2, book3, book4, book5]
 print('\nSchool hobby library:')
 
 for book in library:
-    if book.is_reserved == True:
+    if book.is_reserved:
         print(f"Title: {book.title}, Author: {book.author}, Pages: {book.total_pages}, "
               f"Page material: {book.paper_material}, Reserved!")
     else:
@@ -104,7 +104,7 @@ school_book4.is_reserved = True
 Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9"""
 
 for book in school_books:
-    if book.is_reserved == True:
+    if book.is_reserved:
         print(f"Title: {book.title}, Grade: {book.grade}, Author: {book.author}, Pages: {book.total_pages}, "
               f"Reserved!")
     else:
