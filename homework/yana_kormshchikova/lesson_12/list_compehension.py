@@ -15,5 +15,3 @@ for item, price in new_price_list:
     price_dict[item] = new_price
 
 print(price_dict)
-
-
