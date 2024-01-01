@@ -9,4 +9,3 @@ print(month_name)
 formatted_date = date.strftime("%d.%m.%Y, %H:%M")
 print(formatted_date)
 
-
