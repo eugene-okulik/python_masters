@@ -7,6 +7,7 @@ class SchoolTextbook:
         self.school_class = school_class
         self.has_exercises = has_exercises
 
+
 # Создание нескольких экземпляров учебников
 textbook1 = SchoolTextbook("Алгебра", "Иванов", 200, "Математика", 9, True)
 textbook2 = SchoolTextbook("История", "Петров", 150, "История", 10, False)

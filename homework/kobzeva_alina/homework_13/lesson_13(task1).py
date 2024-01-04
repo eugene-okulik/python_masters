@@ -13,7 +13,8 @@ class Book:
 
     def get_details(self):
         if self.reserved:
-            print(f"Название: {self.title}, Автор: {self.author}, Страниц: {self.num_pages}, Материал: {self.material}, Зарезервирована")
+            print(f"Название: {self.title}, Автор: {self.author}, Страниц: {self.num_pages}, "
+                  f"Материал: {self.material}, Зарезервирована")
         else:
             print(f"Название: {self.title}, Автор: {self.author}, Страниц: {self.num_pages}, Материал: {self.material}")
 
