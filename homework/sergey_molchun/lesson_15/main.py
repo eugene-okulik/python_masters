@@ -64,7 +64,6 @@ while date_format_correct is False:
         print(f"Error: {em}.")
         print("Please use format: YYYY-MM-DD.\n")
 
-
     else:
         date_format_correct = True
         print("You've entered date correctly! Thank YOU!")
