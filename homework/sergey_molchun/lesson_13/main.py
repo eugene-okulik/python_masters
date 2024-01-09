@@ -17,6 +17,7 @@ ISBN
 class Book:
     def __init__(self, title, author, total_pages, isbn=0, paper_material="150mg", text_is_present=True,
                  is_reserved=False):
+        self.page_binding = "Number_7"
         self.title = title
         self.author = author
         if not isinstance(total_pages, int):
@@ -72,7 +73,7 @@ for book in library:
 print('\nSchool textbook library:')
 
 
-class School_Book(Book):
+class SchoolBook(Book):
     def __init__(self, title, grade, author, total_pages, isbn=0, paper_material="150mg", text_is_present=True,
                  exercises=True, is_reserved=False):
         super().__init__(title, author, total_pages, isbn=0, paper_material="150mg", text_is_present=True,
@@ -86,10 +87,10 @@ class School_Book(Book):
 Создайте несколько экземпляров учебников.
 После создания пометьте один учебник как зарезервированный.
 """
-school_book1 = School_Book("Algebra", 11, "Puankare", 200, 1234567890)
-school_book2 = School_Book("History", 10, "Morozov", 350, 1234567891)
-school_book3 = School_Book("Geography", 8, "Domeiko", 150, 1234567892)
-school_book4 = School_Book("Geometry", 9, "Evklid", 300, 1234567893)
+school_book1 = SchoolBook("Algebra", 11, "Puankare", 200, 1234567890)
+school_book2 = SchoolBook("History", 10, "Morozov", 350, 1234567891)
+school_book3 = SchoolBook("Geography", 8, "Domeiko", 150, 1234567892)
+school_book4 = SchoolBook("Geometry", 9, "Evklid", 300, 1234567893)
 
 school_books = [school_book1, school_book2, school_book3, school_book4]
 
@@ -109,3 +110,5 @@ for book in school_books:
               f"Reserved!")
     else:
         print(f"Title: {book.title}, Grade: {book.grade}, Author: {book.author}, Pages: {book.total_pages}")
+
+print(school_book1.page_binding)
