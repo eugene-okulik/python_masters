@@ -23,13 +23,9 @@ PRICE_LIST = '''тетрадь 50р
 рюкзак 500р'''
 
 # При помощи генераторов превратите этот текст в словарь такого вида:
-lines_list = PRICE_LIST.splitlines()
 converted = list(map(lambda x: x.split(" "), PRICE_LIST.splitlines()))
 print(converted)
-finished_dict = {}
-for item, price in converted:
-    int_price = int(price.rstrip("р"))
-    finished_dict.update({item: int_price})
+finished_dict = {key:int(value.rstrip("р")) for (key,value) in converted}
 print(finished_dict)
 
 # {'тетрадь': 50, 'книга': 200, 'ручка': 100, 'карандаш': 70, 'альбом': 120, 'пенал': 300, 'рюкзак': 500}
