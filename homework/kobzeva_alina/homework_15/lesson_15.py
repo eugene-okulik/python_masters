@@ -26,3 +26,4 @@ except IndexError:
     print("Структура файла некорректна.")
 except ValueError:
     print("Некорректный формат даты.")
+    
