@@ -1,5 +1,4 @@
 import os
-import pprint
 
 current_path = os.path.dirname(__file__)
 repo_home = os.path.dirname(os.path.dirname(os.path.dirname(current_path)))
