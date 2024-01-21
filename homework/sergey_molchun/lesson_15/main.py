@@ -1,5 +1,4 @@
 import requests
-import os
 import datetime as dt
 
 # TODO: Task 1:
@@ -17,36 +16,33 @@ import datetime as dt
 # должно быть реализовано то действие, которое написано в файле после этой даты.
 # Ну и так далее для каждой даты.
 
+response = requests.get(
+    "https://github.com/eugene-okulik/python_masters/tree/main/homework/eugene_okulik/hw_15/data.txt")
+payload = response.json()['payload']
+item_list = (payload['blob']['rawLines'])
 
-current_path = os.path.dirname(__file__)
-root_folder = os.path.dirname(os.path.dirname(current_path))
-new_file_path = os.path.join(root_folder, 'eugene_okulik', 'hw_15', 'data.txt')
+dates = []
 
-with open(new_file_path, encoding='utf-8') as data_file:
-    item_list = data_file.readlines()
+for elem in item_list:
+    # print(elem)
+    elem = str(elem)[3:29]
+    date = dt.datetime.strptime(elem, "%Y-%m-%d %H:%M:%S.%f")  # 2023-12-04 20:34:13.212967
+    # print(elem)
+    dates.append(date)
 
-    dates = []
+# 1. 2023-11-27 20:34:13.212967 - распечатать эту дату, но на неделю позже.
+# Должно получиться 2023-12-04 20:34:13.212967
+print(f"Original date: {dates[0]}.")
+print(f"Date +7 days: {dates[0] + dt.timedelta(days=7)}.\n")
 
-    for elem in item_list:
-        # print(elem)
-        elem = str(elem)[3:29]
-        date = dt.datetime.strptime(elem, "%Y-%m-%d %H:%M:%S.%f")  # 2023-12-04 20:34:13.212967
-        # print(elem)
-        dates.append(date)
+# 2. 2023-07-15 18:25:10.121473 - распечатать какой это будет день недели
+print(f"{str(dates[1])[:10]} is a - {dates[1].strftime('%A')}.\n")
 
-    # 1. 2023-11-27 20:34:13.212967 - распечатать эту дату, но на неделю позже.
-    # Должно получиться 2023-12-04 20:34:13.212967
-    print(f"Original date: {dates[0]}.")
-    print(f"Date +7 days: {dates[0] + dt.timedelta(days=7)}.\n")
-
-    # 2. 2023-07-15 18:25:10.121473 - распечатать какой это будет день недели
-    print(f"{str(dates[1])[:10]} is a - {dates[1].strftime('%A')}.\n")
-
-    # 3. 2023-06-12 15:23:45.312167 - распечатать сколько дней назад была эта дата
-    date_now = dt.datetime.now()
-    date_compared = dates[2]
-    difference = date_now - date_compared
-    print(f"It's difference of: {difference.days} days.\n")
+# 3. 2023-06-12 15:23:45.312167 - распечатать сколько дней назад была эта дата
+date_now = dt.datetime.now()
+date_compared = dates[2]
+difference = date_now - date_compared
+print(f"It's difference of: {difference.days} days.\n")
 
 # TODO: Task 2
 # Попросите пользователя ввести дату и
@@ -56,7 +52,9 @@ with open(new_file_path, encoding='utf-8') as data_file:
 # Обработайте это исключение и подскажите пользователю в каком формате нужно вводить дату.
 
 
-while True:
+date_format_correct = False
+
+while date_format_correct is False:
     user_date = input("Please enter the date of your birth:")
 
     try:
@@ -67,9 +65,9 @@ while True:
         print("Please use format: YYYY-MM-DD.\n")
 
     else:
-        # date_format_correct = False
+        date_format_correct = True
         print("You've entered date correctly! Thank YOU!")
-        break
+
 print(
     f"Date of your birth: day {date_converted.day} of {date_converted.strftime('%B')} "
     f"of year {date_converted.year}.\n")
