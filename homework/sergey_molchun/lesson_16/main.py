@@ -1,5 +1,6 @@
 import os.path
 
+
 """TODO: 
 В папке homework/eugene_okulik/Lesson_16/hw лежит файл data.log
 
@@ -7,16 +8,22 @@ import os.path
 превратите всё его содержимое в питоновский словарь такого вида:
 
 {
-    '2022-05-18 12:19:51.685496': '2022-05-18 12:19:51.685496 ::WARNING:: Memory is almost full',
-    '2022-05-18 12:20:55.783416': '2022-05-18 12:20:55.783416 ::INFO:: Reading data from disk',
-    '2022-05-18 12:20:57.923814': '2022-05-18 12:20:57.923814 ::ERROR:: No response from disk, 
-    data can not be retrieved',
-    '2022-05-18 12:20:59.369107': '2022-05-18 12:20:59.369107 ::ERROR:: Exited abnormally'
+    '2022-05-18 12:19:51.685496': '2022-05-18 12:19:51.685496
+     ::WARNING:: Memory is almost full',
+    '2022-05-18 12:20:55.783416': '2022-05-18 12:20:55.783416
+     ::INFO:: Reading data from disk',
+    '2022-05-18 12:20:57.923814': '2022-05-18 12:20:57.923814
+     ::ERROR:: No response from disk, data can not be retrieved',
+    '2022-05-18 12:20:59.369107': '2022-05-18 12:20:59.369107
+     ::ERROR:: Exited abnormally'
 }
 """
 
-CURRENT_PATH = os.path.dirname(__file__).replace(r"\sergey_molchun\lesson_16", "")
-TARGET_FILE = os.path.join(CURRENT_PATH, 'eugene_okulik', 'Lesson_16', 'hw', 'data.log')
+CURRENT_PATH = (os.path.dirname(__file__)
+                .replace(r"\sergey_molchun\lesson_16", ""))
+TARGET_FILE = os.path.join(CURRENT_PATH,
+                           'eugene_okulik', 'Lesson_16', 'hw', 'data.log')
+
 
 with open(TARGET_FILE, 'r', encoding="UTF-8") as log_file:
     elements = log_file.readlines()
