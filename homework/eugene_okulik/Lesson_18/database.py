@@ -58,8 +58,8 @@ with mysql.connect(
 query = '''
 SELECT * from students s
 left join `groups` g
-on s.group_id = g.id 
+on s.group_id = g.id
 left JOIN books b
-on s.id = b.taken_by_student_id 
+on s.id = b.taken_by_student_id
 WHERE g.title = 'QT42'
 '''
