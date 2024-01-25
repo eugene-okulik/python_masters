@@ -6,8 +6,9 @@ text_final = []
 
 for word in text_1:
     if word.endswith(',') or word.endswith('.'):
-    text_final.append(f"{word[:-1] + 'ing' + word[-1:]}")
+        text_final.append(f"{word[:-1] + 'ing' + word[-1:]}")
     else:
         text_final.append(word + 'ing')
 
 print(' '.join(text_final))
+
