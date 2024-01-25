@@ -19,7 +19,7 @@ my_dict['list'].pop(1)
 # 3: Для того, что хранится под ключом ‘dict’:
 # добавьте элемент с ключом ('i am a tuple',) и любым значением
 # удалите какой-нибудь элемент
-my_dict["dict"].update({'i am a tuple': '10'})
+my_dict["dict"].update({("i am a tuple",): (10)})
 my_dict['dict'].pop('surname')
 
 # 4: Для того, что хранится под ключом ‘set’:
