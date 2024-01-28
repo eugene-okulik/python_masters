@@ -5,7 +5,7 @@ class Flowers:
         self.freshness = freshness
         self.color = color
         self.stem_length = stem_length
-        self.cost = cost_rub
+        self.cost_rub = cost_rub
         self.lifetime = lifetime
 
 
@@ -32,19 +32,16 @@ class Bouquet:
         self.bouquet.append(flower)
 
     def calculate_cost(self):
-        total_cost = 0
-        for flower in self.bouquet:
-            total_cost += flower.cost
-            return total_cost
+        total_cost = sum([flower.cost_rub for flower in self.bouquet])
+        return total_cost
 
     def calculate_wilting_time(self):
-        total_lifetime = 0
-        for flower in self.bouquet:
-            total_lifetime += flower.lifetime
+        total_lifetime = sum([flower.lifetime for flower in self.bouquet])
         return total_lifetime / len(self.bouquet)
 
     def sort_by_color(self):
-        self.bouquet.sort(key=lambda x: x.color)
+        self.bouquet.sort(key=lambda flower: flower.color)
+        return self.bouquet
 
 
 peony1 = DomesticFlower('Peony', False, 'pink', 0.5, 45, 2)
@@ -63,7 +60,6 @@ new_bouquet.add_flower_to_bouquet(iberis)
 new_bouquet.add_flower_to_bouquet(lupins)
 
 print(new_bouquet.calculate_cost())
+print(new_bouquet.calculate_wilting_time())
 print(new_bouquet.sort_by_color())
-
-
 
