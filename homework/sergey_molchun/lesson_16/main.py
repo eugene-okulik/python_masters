@@ -1,6 +1,5 @@
 import os.path
 
-
 """TODO:
 В папке homework/eugene_okulik/Lesson_16/hw лежит файл data.log
 
@@ -19,11 +18,10 @@ import os.path
 }
 """
 
-CURRENT_PATH = (os.path.dirname(__file__)
-                .replace(r"\sergey_molchun\lesson_16", ""))
-TARGET_FILE = os.path.join(CURRENT_PATH,
-                           'eugene_okulik', 'Lesson_16', 'hw', 'data.log')
+ROOT_FOLDER = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
+TARGET_FILE = os.path.join(ROOT_FOLDER,
+                           'eugene_okulik', 'Lesson_16', 'hw', 'data.log')
 
 with open(TARGET_FILE, 'r', encoding="UTF-8") as log_file:
     elements = log_file.readlines()
