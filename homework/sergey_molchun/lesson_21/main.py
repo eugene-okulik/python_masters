@@ -48,7 +48,7 @@ def replace_entire_entity_put():
     assert r.status_code == 200, 'Status code is incorrect'
     update_date = str(r.json()['updatedAt']).split('T')[0]
 
-    # assert update_date == day_today, 'Update date is incorrect'
+    assert update_date == day_today, 'Update date is incorrect'
     assert r.json()['name'] == "Apple Vision", 'Name value is incorrect'
     assert r.json()['data']['color'] == "white", 'Color value is incorrect'
     assert r.json()['data']['generation'] == "2nd", 'Generation value is incorrect'
