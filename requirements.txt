@@ -1,12 +1,14 @@
 certifi==2023.11.17
 charset-normalizer==3.3.2
 exceptiongroup==1.2.0
+execnet==2.0.2
 idna==3.6
 iniconfig==2.0.0
 mysql-connector-python==8.3.0
 packaging==23.2
 pluggy==1.4.0
 pytest==8.0.0
+pytest-xdist==3.5.0
 python-dotenv==1.0.0
 requests==2.31.0
 tomli==2.0.1
