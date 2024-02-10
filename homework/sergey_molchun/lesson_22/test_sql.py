@@ -11,7 +11,7 @@ def global_test():
 
 
 @pytest.fixture(scope='function')
-def created_entity():
+def entity_id():
     entity_id = functions.create_new_entity().json()['id']
     yield entity_id
     functions.delete_the_entity(entity_id)
@@ -39,8 +39,7 @@ def test_create_new_entity_post():
     ("Apple Vision Pro", "black", "3rd", 3999),
     ("Apple Vision Plus", "silver", "4th", 4499)
 ])
-def test_replace_entire_entity_put(global_test, created_entity, name, color, generation, price):
-    entity_id = created_entity
+def test_replace_entire_entity_put(entity_id, name, color, generation, price):
     payload = functions.json.dumps({"name": name, "data": {"color": color, "generation": generation, "price": price}})
     r = functions.replace_entire_entity(entity_id, payload)
     day_today = str(datetime.datetime.now()).split()[0]
@@ -54,16 +53,15 @@ def test_replace_entire_entity_put(global_test, created_entity, name, color, gen
 
 
 @pytest.mark.critical
-def test_update_entity_partialy(created_entity):
-    entity_id = created_entity
+def test_update_entity_partialy(entity_id):
     r_name = functions.update_entity_name(entity_id)
     assert r_name.status_code == 200, 'Status code is incorrect'
     assert r_name.json()['name'] == "Apple Vision Pro", 'Name value is incorrect'
 
 
 @pytest.mark.critical
-def test_delete_the_entity():
-    entity_id = functions.create_new_entity().json()['id']
+def test_delete_the_entity(entity_id):
     r = functions.delete_the_entity(entity_id)
     assert r.status_code == 200, 'Status code is incorrect'
-    assert r.json()['message'] == f"Object with id = {entity_id} has been deleted."
+    check = functions.get_particular_entity(entity_id)
+    assert check.json()['message'] == f"Object with id = {entity_id} has been deleted."

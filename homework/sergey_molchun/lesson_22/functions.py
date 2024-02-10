@@ -9,6 +9,10 @@ def get_request():
     r = requests.get(URL, headers=headers)
     return r
 
+def get_particular_entity(entity_id, payload):
+    requestUrl = f"{URL}/{entity_id}"
+    r = requests.get(requestUrl, data=payload, headers=headers)
+    return r
 
 def create_new_entity():
     payload = json.dumps(
