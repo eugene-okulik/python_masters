@@ -24,13 +24,12 @@ def test_get_request():
 
 
 @pytest.mark.critical
-def test_create_new_entity_post():
-    r = functions.create_new_entity()
-    assert r.status_code == 200, 'Status code is incorrect'
-    assert r.json()['name'] == "Apple iPhone 16/5", 'Name value is incorrect'
-    assert r.json()['data']['color'] == "Plasma", 'Color value is incorrect'
-    assert r.json()['data']['generation'] == "1.2", 'Generation value is incorrect'
-    assert r.json()['data']['price'] == 15975, 'Price value is incorrect'
+def test_create_new_entity_post(entity_id):
+    assert entity_id.status_code == 200, 'Status code is incorrect'
+    assert entity_id.json()['name'] == "Apple iPhone 16/5", 'Name value is incorrect'
+    assert entity_id.json()['data']['color'] == "Plasma", 'Color value is incorrect'
+    assert entity_id.json()['data']['generation'] == "1.2", 'Generation value is incorrect'
+    assert entity_id.json()['data']['price'] == 15975, 'Price value is incorrect'
 
 
 @pytest.mark.critical
