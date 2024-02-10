@@ -1,6 +1,6 @@
 import pytest
 import datetime
-from functions import *
+import functions
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -12,20 +12,20 @@ def global_test():
 
 @pytest.fixture(scope='function')
 def created_entity():
-    entity_id = create_new_entity().json()['id']
+    entity_id = functions.create_new_entity().json()['id']
     yield entity_id
-    delete_the_entity(entity_id)
+    functions.delete_the_entity(entity_id)
 
 
 @pytest.mark.medium
 def test_get_request():
-    r = get_request()
+    r = functions.get_request()
     assert r.status_code == 200, 'Status code is incorrect'
 
 
 @pytest.mark.critical
 def test_create_new_entity_post():
-    r = create_new_entity()
+    r = functions.create_new_entity()
     assert r.status_code == 200, 'Status code is incorrect'
     assert r.json()['name'] == "Apple iPhone 16/5", 'Name value is incorrect'
     assert r.json()['data']['color'] == "Plasma", 'Color value is incorrect'
@@ -41,8 +41,8 @@ def test_create_new_entity_post():
 ])
 def test_replace_entire_entity_put(global_test, created_entity, name, color, generation, price):
     entity_id = created_entity
-    payload = json.dumps({"name": name, "data": {"color": color, "generation": generation, "price": price}})
-    r = replace_entire_entity(entity_id, payload)
+    payload = functions.json.dumps({"name": name, "data": {"color": color, "generation": generation, "price": price}})
+    r = functions.replace_entire_entity(entity_id, payload)
     day_today = str(datetime.datetime.now()).split()[0]
     assert r.status_code == 200, 'Status code is incorrect'
     update_date = str(r.json()['updatedAt']).split('T')[0]
@@ -56,14 +56,14 @@ def test_replace_entire_entity_put(global_test, created_entity, name, color, gen
 @pytest.mark.critical
 def test_update_entity_partialy(created_entity):
     entity_id = created_entity
-    r_name = update_entity_name(entity_id)
+    r_name = functions.update_entity_name(entity_id)
     assert r_name.status_code == 200, 'Status code is incorrect'
     assert r_name.json()['name'] == "Apple Vision Pro", 'Name value is incorrect'
 
 
 @pytest.mark.critical
 def test_delete_the_entity():
-    entity_id = create_new_entity().json()['id']
-    r = delete_the_entity(entity_id)
+    entity_id = functions.create_new_entity().json()['id']
+    r = functions.delete_the_entity(entity_id)
     assert r.status_code == 200, 'Status code is incorrect'
     assert r.json()['message'] == f"Object with id = {entity_id} has been deleted."
