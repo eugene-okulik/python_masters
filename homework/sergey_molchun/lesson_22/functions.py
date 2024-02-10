@@ -10,9 +10,9 @@ def get_request():
     return r
 
 
-def get_particular_entity(entity_id, payload):
+def get_particular_entity(entity_id):
     requestUrl = f"{URL}/{entity_id}"
-    r = requests.get(requestUrl, data=payload, headers=headers)
+    r = requests.get(requestUrl, headers=headers)
     return r
 
 
