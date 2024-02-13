@@ -8,3 +8,4 @@ config.py
 .env
 creds.py
 allure-results
+allure-report
