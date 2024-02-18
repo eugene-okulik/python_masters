@@ -67,8 +67,8 @@ def check_prices_periodically():
             elif cookies_count >= cursor_price:
                 cursor_price_tag.click()
 
-        except:
-            print("Something wrong with items buying.")
+        except Exception as e:
+            print(f"Something wrong with items buying.\n{e}")
 
 
 #
