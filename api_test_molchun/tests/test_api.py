@@ -17,14 +17,18 @@ def test_get_request():
 @allure.feature('Create a new item')
 @allure.severity('critical')
 @pytest.mark.critical
-def test_create_new_entity():
+def test_create_new_entity(entity_id):
+    name = 'Apple iPhone 16/5'
+    color = 'Plasma'
+    generation = '1.2'
+    price = 15975
     new_test = api.CreateEntity()
-    new_test.create_entity()
+    new_test.create_entity(name, color, generation, price)
     new_test.check_response_code()
-    new_test.check_entity_name()
-    new_test.check_entity_color()
-    new_test.check_entity_generation()
-    new_test.check_entity_price()
+    new_test.check_entity_name(name)
+    new_test.check_entity_color(color)
+    new_test.check_entity_generation(generation)
+    new_test.check_entity_price(price)
 
 
 @allure.epic('Website API')
@@ -41,10 +45,10 @@ def test_replace_entire_entity_put(entity_id, name, color, generation, price):
     replace_entity = api.ReplaceEntity()
     replace_entity.replace_entity(entity_id, name=name, color=color, generation=generation, price=price)
     replace_entity.check_response_code()
-    replace_entity.check_replaced_entity_name(name)
-    replace_entity.check_replaced_entity_color(color)
-    replace_entity.check_replaced_entity_generation(generation)
-    replace_entity.check_replaced_entity_price(price)
+    replace_entity.check_entity_name(name)
+    replace_entity.check_entity_color(color)
+    replace_entity.check_entity_generation(generation)
+    replace_entity.check_entity_price(price)
 
 
 @allure.epic('Website API')
@@ -55,7 +59,7 @@ def test_update_entity(entity_id):
     update_entity = api.UpdateEntity()
     update_entity.update_entity(entity_id, "Apple Vision Pro")
     update_entity.check_response_code()
-    update_entity.check_update_entity_name("Apple Vision Pro")
+    update_entity.check_entity_name("Apple Vision Pro")
 
 
 @allure.epic('Website API')
