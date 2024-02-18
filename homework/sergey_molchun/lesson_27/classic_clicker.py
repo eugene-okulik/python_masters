@@ -5,7 +5,6 @@ from selenium.common import NoSuchElementException, StaleElementReferenceExcepti
     TimeoutException
 from selenium.webdriver.common.by import By
 
-
 URL = "http://orteil.dashnet.org/experiments/cookie/"
 
 chrome_options = webdriver.ChromeOptions()
@@ -16,7 +15,6 @@ driver.get(URL)
 time.sleep(2)
 
 cookies_count = None
-
 
 
 def check_prices_periodically():
@@ -71,9 +69,12 @@ def check_prices_periodically():
 
         except:
             print("Something wrong with items buying.")
+
+
 #
 prices_check_thread = threading.Thread(target=check_prices_periodically)
 prices_check_thread.start()
+
 
 def run_game():
     global cookies_count
@@ -102,4 +103,6 @@ def run_game():
     finally:
         print("Retrying continue the game.")
         run_game()
+
+
 run_game()
