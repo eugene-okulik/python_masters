@@ -50,6 +50,7 @@ def test_fill_the_form(fn: str, ln: str, eml: str, gndr: int, tel: int, bd: str,
     mobile.send_keys(tel)
 
     # Impossible to clear the date field. the form became blank!!!
+    print(dob)
     # dob.click()
     # dob.send_keys(Keys.CONTROL + 'a')
     # dob.send_keys(Keys.DELETE)
