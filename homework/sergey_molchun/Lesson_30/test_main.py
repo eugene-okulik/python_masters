@@ -75,9 +75,7 @@ def test_compare(driver):
 
     add_to_compare_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "(//*[@class='action tocompare'])[1]")))
-
-    time.sleep(2)  # HOW TO REPLACE THIS SLEEP ??? IT DOESN'T WORK WITHOUT IT AT ALL!!!
-    add_to_compare_button.click()
+    ActionChains(driver).move_to_element(first_product).move_to_element(add_to_compare_button).click(add_to_compare_button).perform()
 
     check_comparable_item = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@class='product-item-name']")))
