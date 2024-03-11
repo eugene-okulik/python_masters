@@ -66,9 +66,9 @@ with mysql.connect(
     create_marks = 'INSERT INTO marks (value, lesson_id, student_id) VALUES(%s, %s, %s)'
     cursor.executemany(create_marks, [
         ('A (Excellent)', lesson_id, student_id),
-        ('C (Satisfactory)', lesson_id+1, student_id),
-        ('B (Good)', lesson_id+2, student_id),
-        ('B (Good)', lesson_id+3, student_id)
+        ('C (Satisfactory)', lesson_id + 1, student_id),
+        ('B (Good)', lesson_id + 2, student_id),
+        ('B (Good)', lesson_id + 3, student_id)
     ])
     db.commit()
 
@@ -86,7 +86,8 @@ with mysql.connect(
     books = cursor.fetchall()
     print(books)
 
-    # Для вашего студента выведите всё, что о нем есть в базе: группа, книги, оценки с названиями занятий и предметов (всё одним запросом с использованием Join)
+    # Для вашего студента выведите всё, что о нем есть в базе: группа, книги,
+    # оценки с названиями занятий и предметов (всё одним запросом с использованием Join)
 
     get_student_info = '''
     SELECT *
