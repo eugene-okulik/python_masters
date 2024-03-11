@@ -1,5 +1,5 @@
 class Book:
-    def __init__(self, author, title, pages_number,  isbn, text=True, pages_material='бумага'):
+    def __init__(self, author, title, pages_number, isbn, text=True, pages_material='бумага'):
         self.pages_material = pages_material
         self.text = text
         self.title = title
