@@ -29,7 +29,7 @@ async def test_login_page():  # Просто через (page: Page) у меня
         await page.get_by_role('link', name='Form Authentication').click()
         await page.get_by_role('textbox', name="Username").fill("tomsmith")
         await page.get_by_role('textbox', name="Password").fill("SuperSecretPassword!")
-        await  page.get_by_role('button', name='Login').click()
+        await page.get_by_role('button', name='Login').click()
 
         secret_area = await page.get_by_role('heading', name="Secure Area").first.text_content()
         assert secret_area == ' Secure Area', 'Wrong Header after login'
