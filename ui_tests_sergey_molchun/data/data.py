@@ -32,7 +32,7 @@ class Data:
 
     # SALES PAGE LOCATORS
     dealsWomen = 'span.more.button'
-    dealsMen = "//strong[contains(@class, 'title') and contains(text(), 'Men\’s Bargains')]"
+    dealsMen = "//strong[contains(@class, 'title') and contains(text(), 'Men’s Bargains')]"
     dealsLuma = "//strong[contains(@class, 'title') and contains(text(), 'Luma Gear Steals')]"
     discont20Percent = "//strong[contains(@class, 'title') and contains(text(), '20% OFF')]"
     discont50Uds = "//strong[contains(@class, 'title') and contains(text(), 'Spend $50 or more')]"

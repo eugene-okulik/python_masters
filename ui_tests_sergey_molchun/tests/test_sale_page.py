@@ -3,6 +3,7 @@ from ui_tests_sergey_molchun.data.data import Data
 from ui_tests_sergey_molchun.pages.sale_page import SalePage
 import allure
 
+
 @allure.testcase(Data.sale_url, 'Test sale page')
 def test_sales_page(page: Page):
     page = SalePage(page)
