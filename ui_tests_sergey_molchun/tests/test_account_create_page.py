@@ -1,4 +1,3 @@
-from data.data import driver
 from data.locators import Locators
 from pages.account_create_page import AccountCreatePage
 from selenium.webdriver.remote.webdriver import WebDriver

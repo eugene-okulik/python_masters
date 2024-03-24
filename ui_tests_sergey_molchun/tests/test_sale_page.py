@@ -1,4 +1,3 @@
-from data.data import driver
 from data.locators import Locators
 from pages.sale_page import SalePage
 import allure

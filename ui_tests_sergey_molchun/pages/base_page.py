@@ -1,7 +1,7 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.common.exceptions import StaleElementReferenceException
 from data.locators import Locators
-from data.data import driver as dr
+from conftest import driver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
@@ -12,8 +12,8 @@ class BasePage:
     page_url = None
     title = 'Home Page'
 
-    def __init__(self, dr: WebDriver):
-        self.driver = dr
+    def __init__(self, driver: WebDriver):
+        self.driver = driver
 
     @allure.step("Open the page")
     def open(self, timeout=5000):

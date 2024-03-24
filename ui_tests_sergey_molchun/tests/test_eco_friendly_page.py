@@ -1,4 +1,3 @@
-from data.data import driver
 from data.locators import Locators
 from pages.eco_friendly_page import EcoFriendlyPage
 import allure
