@@ -1,21 +1,20 @@
-from playwright.sync_api import Page, expect
-# from data.data import Data
-# from data.data import Data
-from ui_tests_sergey_molchun.data.data import Data
-from ui_tests_sergey_molchun.pages.account_create_page import AccountCreatePage
+from data.data import driver
+from data.locators import Locators
+from pages.account_create_page import AccountCreatePage
+from selenium.webdriver.remote.webdriver import WebDriver
 import allure
 
 
-@allure.testcase(Data.create_account_url, 'Test create account page')
-def test_create_account_page(page: Page):
-    page = AccountCreatePage(page)
+@allure.testcase(Locators.create_account_url, 'Test create account page')
+def test_create_account_page(driver: WebDriver):
+    page = AccountCreatePage(driver)
     page.open()
-    page.check_url(f'{Data.base_url}{Data.create_account_url}')
+    page.check_url(f'{Locators.base_url}{Locators.create_account_url}')
     page.check_title(page.title)
 
-    page.check_element(Data.field_first_name).is_editable()
-    page.check_element(Data.field_last_name).is_editable()
-    page.check_element(Data.field_email).is_editable()
-    page.check_element(Data.field_password).is_editable()
-    page.check_element(Data.field_password_confirm).is_editable()
-    page.check_element(Data.button_submit).is_enabled()
+    page.check_element(Locators.field_first_name)
+    page.check_element(Locators.field_last_name)
+    page.check_element(Locators.field_email)
+    page.check_element(Locators.field_password)
+    page.check_element(Locators.field_password_confirm)
+    page.check_element(Locators.button_submit)

@@ -1,7 +1,7 @@
-from ui_tests_sergey_molchun.pages.base_page import BasePage
-from ui_tests_sergey_molchun.data.data import Data
+from pages.base_page import BasePage
+from data.locators import Locators
 
 
 class AccountCreatePage(BasePage):
-    page_url = Data.create_account_url
+    page_url = Locators.create_account_url
     title = 'Create New Customer Account'

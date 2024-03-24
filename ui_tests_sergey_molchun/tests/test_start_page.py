@@ -1,13 +1,13 @@
-from playwright.sync_api import Page, expect
-from ui_tests_sergey_molchun.data.data import Data
-from ui_tests_sergey_molchun.pages.base_page import BasePage
+from data.data import driver
+from data.locators import Locators
+from pages.base_page import BasePage
 import allure
 
 
-@allure.testcase(Data.base_url, 'Test start page')
-def test_start_page(page: Page):
-    page = BasePage(page)
+@allure.testcase(Locators.base_url, 'Test start page')
+def test_start_page(driver):
+    page = BasePage(driver)
     page.open()
-    page.check_url(Data.base_url)
-    page.check_title(page.title)
+    page.check_url(Locators.base_url)
+    page.check_title(driver.title)
     page.check_header_h1('Home Page')

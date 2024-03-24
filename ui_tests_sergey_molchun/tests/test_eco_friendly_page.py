@@ -1,21 +1,18 @@
-from playwright.sync_api import Page, expect
-from ui_tests_sergey_molchun.data.data import Data
-from ui_tests_sergey_molchun.pages.eco_friendly_page import EcoFriendlyPage
+from data.data import driver
+from data.locators import Locators
+from pages.eco_friendly_page import EcoFriendlyPage
 import allure
 
 
-@allure.testcase(Data.eco_friendly_url, 'Test eco-friendly page')
-def test_eco_friendly_page(page: Page):
-    page = EcoFriendlyPage(page)
+@allure.testcase(Locators.eco_friendly_url, 'Test eco-friendly page')
+def test_eco_friendly_page(driver):
+    page = EcoFriendlyPage(driver)
     page.open()
-    page.check_url(f'{Data.base_url}{Data.eco_friendly_url}')
+    page.check_url(f'{Locators.base_url}{Locators.eco_friendly_url}')
     page.check_title(page.title)
-    # page.change_page_items_number('36')
-    # page.check_element(Data.page_limiter).last.select_option("36")
-
-    page.check_elements(Data.goods_titles, Data.page1_item1)
-    page.check_elements(Data.goods_titles, Data.page1_item2)
-    page.check_elements(Data.goods_titles, Data.page1_item3)
-    page.check_element(Data.next_page).last.click()
-    page.check_elements(Data.goods_titles, Data.page2_item1)
-    page.check_elements(Data.goods_titles, 'Bruno Compete Hoodie')
+    page.check_element_by_text(Locators.goods_titles, Locators.page1_item1)
+    page.check_element_by_text(Locators.goods_titles, Locators.page1_item2)
+    page.check_element_by_text(Locators.goods_titles, Locators.page1_item3)
+    page.check_elements(Locators.next_page)[1].click()
+    page.check_element_by_text(Locators.goods_titles, Locators.page2_item1)
+    page.check_element_by_text(Locators.goods_titles, 'Bruno Compete Hoodie')
