@@ -1,0 +1,9 @@
+g > Go to first line in file:
+G > Go to last line in file:
+z or SPACE or PgDown> Forward one window:
+e or ENTER > Forward one line:
+k > Backward one line:
+/query > Search forward for matching line:
+?query > Search backward for matching line:
+n > Repeat previous search:
+N > Repeat previous search in reverse direction:
