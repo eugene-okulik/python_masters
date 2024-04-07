@@ -1,16 +1,13 @@
 from playwright.sync_api import Page, expect
 from data.locators import Locators
 from data.data import Data
+from pages.base_page import BasePage
 import allure
 
 
-class BasePage:
-    root_url = Data.base_url
+class StartPage(BasePage):
     page_url = None
     title = 'Home Page'
-
-    def __init__(self, page: Page):
-        self.page = page
 
     @allure.step("Open the page")
     def open(self, timeout=5000):

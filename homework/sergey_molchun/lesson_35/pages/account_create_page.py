@@ -1,8 +1,9 @@
-from pages.base_page import BasePage
+from pages.start_page import StartPage
 from data.data import Data
 import allure
 
-class AccountCreatePage(BasePage):
+
+class AccountCreatePage(StartPage):
     page_url = Data.create_account_url
 
     @allure.step("Check element is editable")
@@ -20,7 +21,3 @@ class AccountCreatePage(BasePage):
             return True
         else:
             return False
-
-
-
-

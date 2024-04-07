@@ -1,7 +1,7 @@
-from pages.base_page import BasePage
+from pages.start_page import StartPage
 from data.data import Data
 
 
-class EcoFriendlyPage(BasePage):
+class EcoFriendlyPage(StartPage):
     page_url = Data.eco_friendly_url
     title = 'Eco Friendly'

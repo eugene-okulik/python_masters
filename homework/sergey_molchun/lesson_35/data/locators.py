@@ -1,5 +1,4 @@
 class Locators:
-
     # LOCATORS
     # BASE PAGE LOCATORS
     linkWhatsNew = "page.locator('#ui-id-3')"
@@ -25,7 +24,6 @@ class Locators:
     page1_item3 = "Atlas Fitness Tank"
     page2_item1 = "Chaz Kangeroo Hoodie"
     page2_item2 = "Bruno Compete Hoodie"
-
 
     # SALES PAGE LOCATORS
     dealsWomen = 'span.more.button'
