@@ -11,8 +11,6 @@ def test_eco_friendly_page(page: Page):
     page.open()
     page.check_url(f'{Data.base_url}{Data.eco_friendly_url}')
     page.check_title(page.title)
-    # page.change_page_items_number('36')
-    # page.check_element(Data.page_limiter).last.select_option("36")
 
     page.check_element_text(Locators.goods_titles, Locators.page1_item1)
     page.check_element_text(Locators.goods_titles, Locators.page1_item2)

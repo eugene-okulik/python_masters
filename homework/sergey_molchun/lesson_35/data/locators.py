@@ -7,7 +7,6 @@ class Locators:
     header_h1 = "h1"
 
     # CREATE ACCOUNT PAGE LOCATORS
-    # field_first_name = "self.page.locator('#firstname')"
     field_first_name = "#firstname"
     field_last_name = "#lastname"
     field_email = "#email_address"

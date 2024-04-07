@@ -1,6 +1,5 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 from data.locators import Locators
-from data.data import Data
 from pages.base_page import BasePage
 import allure
 
@@ -55,7 +54,6 @@ class StartPage(BasePage):
         for element in element_texts:
             item = element.strip()
             if item == product_text:
-                # print(item)
                 element_is_found = True
                 assert item == product_text
 
@@ -64,8 +62,6 @@ class StartPage(BasePage):
 
     @allure.step("Change number of the elements at the page")
     def change_page_items_number(self, preset_value, timeout=10000):
-        # self.page.locator(element_locator)
         self.page.wait_for_selector(Locators.page_limiter, state="attached")
         self.page.locator(Locators.page_limiter).last.select_option(preset_value)
-        # time.sleep(15)
         self.page.wait_for_load_state("networkidle")
