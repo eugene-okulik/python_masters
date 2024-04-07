@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
-from data.locators import Data
+from data.locators import Locators
+from data.data import Data
 import allure
 
 
@@ -28,16 +29,29 @@ class BasePage:
 
     @allure.step("Check page header")
     def check_header_h1(self, header: str, timeout=5000):
-        page_header = self.page.locator(Data.header_h1).text_content().strip()
+        page_header = self.page.locator(Locators.header_h1).text_content().strip()
         assert page_header == header
 
     @allure.step("Check and return the element")
-    def check_element(self, element_locator, timeout=5000):
+    def check_element_is_present(self, element_locator, timeout=5000):
         page_element = self.page.locator(element_locator)
         return page_element
 
+    @allure.step("Check element is visible")
+    def element_is_visible(self, element_locator, timeout=5000):
+        page_element = self.page.locator(element_locator).is_visible()
+        if page_element:
+            return True
+        else:
+            return False
+
+    @allure.step("Open next page")
+    def open_next_page(self, element_locator, timeout=5000):
+        next_page = self.page.locator(element_locator)
+        return next_page
+
     @allure.step("Check if element is present")
-    def check_elements(self, element_locator, product_text, timeout=5000):
+    def check_element_text(self, element_locator, product_text, timeout=5000):
         page_elements = self.page.locator(element_locator)
         element_texts = page_elements.all_text_contents()
         element_is_found = False
@@ -54,7 +68,7 @@ class BasePage:
     @allure.step("Change number of the elements at the page")
     def change_page_items_number(self, preset_value, timeout=10000):
         # self.page.locator(element_locator)
-        self.page.wait_for_selector(Data.page_limiter, state="attached")
-        self.page.locator(Data.page_limiter).last.select_option(preset_value)
+        self.page.wait_for_selector(Locators.page_limiter, state="attached")
+        self.page.locator(Locators.page_limiter).last.select_option(preset_value)
         # time.sleep(15)
         self.page.wait_for_load_state("networkidle")

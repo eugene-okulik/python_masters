@@ -1,5 +1,5 @@
 from pages.base_page import BasePage
-from data.locators import Data
+from data.data import Data
 
 
 class EcoFriendlyPage(BasePage):

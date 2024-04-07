@@ -1,9 +1,4 @@
-class Data:
-    # URLs
-    base_url = 'https://magento.softwaretestingboard.com/'
-    create_account_url = 'customer/account/create/'
-    eco_friendly_url = 'collections/eco-friendly.html'
-    sale_url = 'sale.html'
+class Locators:
 
     # LOCATORS
     # BASE PAGE LOCATORS
@@ -29,6 +24,8 @@ class Data:
     page1_item2 = "Tiffany Fitness Tee"
     page1_item3 = "Atlas Fitness Tank"
     page2_item1 = "Chaz Kangeroo Hoodie"
+    page2_item2 = "Bruno Compete Hoodie"
+
 
     # SALES PAGE LOCATORS
     dealsWomen = 'span.more.button'

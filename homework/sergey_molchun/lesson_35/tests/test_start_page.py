@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
-from data.locators import Data
+from data.data import Data
+from data.locators import Locators
 from pages.base_page import BasePage
 import allure
 

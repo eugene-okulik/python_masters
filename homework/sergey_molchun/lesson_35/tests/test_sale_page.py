@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
-from data.locators import Data
+from data.data import Data
+from data.locators import Locators
 from pages.sale_page import SalePage
 import allure
 
@@ -12,8 +13,8 @@ def test_sales_page(page: Page):
     page.check_url(f"{Data.base_url}{Data.sale_url}")
     page.check_title(page.title)
 
-    page.check_element(Data.dealsWomen).is_visible()
-    page.check_element(Data.dealsMen).is_visible()
-    page.check_element(Data.dealsLuma).is_visible()
-    page.check_element(Data.discont20Percent).is_visible()
-    page.check_element(Data.discont50Uds).is_visible()
+    assert page.element_is_visible(Locators.dealsWomen)
+    assert page.element_is_visible(Locators.dealsMen)
+    assert page.element_is_visible(Locators.dealsLuma)
+    assert page.element_is_visible(Locators.discont20Percent)
+    assert page.element_is_visible(Locators.discont50Uds)
