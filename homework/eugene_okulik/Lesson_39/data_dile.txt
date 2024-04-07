@@ -1,0 +1,1 @@
+{"city": "Belgrade", "location": [1.1, 2.2], "clouds": true}
