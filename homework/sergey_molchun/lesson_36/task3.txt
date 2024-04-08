@@ -1,0 +1,20 @@
+Задание №3
+Для навигации в файловой системе нужно отличать директории от остальных типов файлов
+Определите типы этих файлов:
+
+crw-rw-rw- > character device > /dev/null
+crw-rw-rw- > character device > /dev/zero
+cannot access > no such > /dev/sda
+crw-rw-rw- > character device > /dev/tty
+drwxr-xr-x > directory > /root
+-rw-r--r-- > regular file > /etc/passwd
+lrwxrwxrwx > symbolic link > /proc/mounts
+-rwxr-xr-x > regular file > /bin/ls
+-rwxr-xr-x > regular file > /bin/zcat
+
+Напомню, для того, чтобы увидеть типы всех файлов в директории, можно использовать команду ls -l. Тип файла будет указан первым символом в строке
+Также, для того, чтобы посмотреть тип (и другую информацию) об одном отдельно взятом файле, можно использовать команду stat.
+Пример:
+
+stat /dev/null
+В полученном результате можно найти информацию о типе файла.
