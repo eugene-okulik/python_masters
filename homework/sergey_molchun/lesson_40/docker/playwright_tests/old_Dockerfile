@@ -1,0 +1,58 @@
+FROM python:latest
+#USER root
+RUN apt-get update && apt-get install -y python3-venv wget git
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+RUN apt-get update -y
+RUN apt-get install -y google-chrome-stable
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+# Install dependencies for Playwright
+RUN apt-get update && apt-get install -y wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Playwright and browser binaries
+RUN pip install playwright
+RUN playwright install
+
+
+# Copy your test scripts, requirements.txt, etc.
+COPY . /automation
+WORKDIR /automation
+
+# Clone your GitHub repository
+RUN git clone https://github.com/Moserios/docker_automation.git /automation
+
+# Install Python dependencies including Playwright
+RUN pip install -r /automation/requirements.txt
+
+
+
+# Set environment variables
+ENV COOL_PORT 8160 \
+ENV COOL_IP 0.0.0.0 \
+ENV COOL_LOG log
+
+# Expose the port the app runs on
+EXPOSE 8160/tcp
+
+# Create necessary directories
+RUN mkdir log
+
+
+
+
+# Add a text file (this could also be done using COPY if the file exists locally)
+RUN echo "Playwright Python Autotests" > /automation/readme.md
+
+
+# Command to run the application
+CMD ["sleep", "infinity"]

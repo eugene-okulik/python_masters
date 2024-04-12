@@ -1,0 +1,50 @@
+# Use the official Jenkins base image
+FROM jenkins/jenkins:lts-jdk17
+
+USER root
+
+# Install necessary system dependencies
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip python3-venv wget git build-essential \
+    libssl-dev libffi-dev python3-dev
+
+# Install Google Chrome for Playwright
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && apt-get install -y google-chrome-stable
+
+# Cleanup to reduce image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Clone your GitHub repository
+RUN git clone https://github.com/Moserios/docker_automation.git /automation
+
+# Set the working directory
+WORKDIR /automation
+
+# Create a virtual environment
+#RUN python3 -m venv automation/venv  #will create automation/automation/venv path
+RUN python3 -m venv venv
+
+# Activate virtual environment and install Playwright
+RUN . automation/venv/bin/activate && pip install playwright && playwright install
+
+# Install Python dependencies from requirements.txt
+RUN . automation/venv/bin/activate && pip install -r requirements.txt
+
+# Set additional environment variables
+ENV COOL_PORT=8160 \
+    COOL_IP=0.0.0.0 \
+    COOL_LOG=log
+
+# Expose the port the app runs on
+EXPOSE 8160/tcp
+
+# Create necessary directories
+RUN mkdir log
+
+# Add a text file
+RUN echo "Playwright Python Autotests" > readme.md
+
+# Switch back to the jenkins user for security
+USER jenkins

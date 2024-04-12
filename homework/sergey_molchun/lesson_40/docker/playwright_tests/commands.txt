@@ -1,0 +1,19 @@
+#build the image
+docker build --no-cache -t automation .
+
+#create a container
+docker run -d --name automation --network docker-network --restart=on-failure -it -p 8160:8160 automation
+
+
+
+# Create a network
+docker network create my-network
+
+# Run containers specifying the custom network
+docker run -d --name website -it --network docker-network -p 8000:8000 --restart=on-failure website
+docker run -d --name automation --network docker-network --restart=on-failure -it -p 8160:8160 automation
+   # docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home jenkins/jenkins:lts-jdk17
+docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins
+
+# install requirements
+docker exec automation /bin/bash -c "source /automation/venv/bin/activate && pip install -r /automation/requirements.txt"

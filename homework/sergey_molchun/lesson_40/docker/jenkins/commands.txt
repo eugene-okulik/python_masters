@@ -1,0 +1,31 @@
+#create custom jenkins image
+docker build --no-cache -t jenkins .
+
+#create container, run it with binded folders for saving projects
+
+#docker run --name jenkins -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home jenkins/jenkins:lts-jdk17
+
+# password: "7defc935c1564a8dbc3c92dd6f458c30"
+
+
+docker run --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home jenkins/jenkins:lts-jdk17
+
+
+# Create a network
+docker network create my-network
+
+# Run containers specifying the custom network
+docker run -d --name website -it --network docker-network -p 8000:8000 --restart=on-failure website
+docker run -d --name automation --network docker-network --restart=on-failure -it -p 8160:8160 automation
+docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home jenkins/jenkins:lts-jdk17
+
+#For running commands from jenkins container inside other containers
+
+#For default jenkins image
+docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts-jdk17
+
+#for custom jenkins image using socket
+docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins
+
+#for custom jenkins image usin TCP
+docker run -d --name jenkins --network docker-network -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\docker\jenkins\projects:/var/jenkins_home -e DOCKER_HOST=tcp://host.docker.internal:2375 jenkins
