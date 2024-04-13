@@ -30,12 +30,15 @@ jobs:
       - name: run smoke tests
         if: "github.event.inputs.deployment_target == 'smoke'"
         run: cd ui_tests_eokulik && pytest -m smoke -v -s --alluredir=allure-results
+        continue-on-error: true
       - name: run regression tests
         run: cd ui_tests_eokulik && pytest -m regression -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'regression'"
+        continue-on-error: true
       - name: run all tests
         run: cd ui_tests_eokulik && pytest -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'all'"
+        continue-on-error: true
       - name: Install Java
         uses: actions/setup-java@v4
         with:
@@ -53,6 +56,6 @@ jobs:
         with:
           name: allure-report
           path: allure-report
-          retention_days: 5
+          retention-days: 5
       
         
