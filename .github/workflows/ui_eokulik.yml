@@ -1,1 +1,15 @@
+name: Eokulik UI tests
 
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: select test to run
+        required: true
+        type: choice
+        default: smoke
+        options:
+          - smoke
+          - regression
+          - all
