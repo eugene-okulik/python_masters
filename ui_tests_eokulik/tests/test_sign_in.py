@@ -1,9 +1,13 @@
 import allure
 from time import sleep
+
+import pytest
+
 from ui_tests_eokulik.pages.sign_in_page import SignIn
 from ui_tests_eokulik.data import users
 
 
+@pytest.mark.smoke
 @allure.feature('login')
 @allure.story('Validations')
 def test_incorrect_login(driver):

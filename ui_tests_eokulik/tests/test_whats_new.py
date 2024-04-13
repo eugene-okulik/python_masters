@@ -1,6 +1,8 @@
 import allure
+import pytest
 
 
+@pytest.mark.regression
 @allure.feature('One')
 def test_yoga_button(whats_new_page):
     whats_new_page.open()
