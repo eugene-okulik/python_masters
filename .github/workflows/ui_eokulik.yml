@@ -13,3 +13,27 @@ on:
           - smoke
           - regression
           - all
+
+jobs:
+  run-tests:
+    name: Run autotests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependancies
+        run: pip install -r requirements.txt
+      - name: run smoke tests
+        if: "github.event.inputs.deployment_target == 'smoke'"
+        run: cd ui_tests_eokulik && pytest -m smoke -v -s
+      - name: run regression tests
+        run: cd ui_tests_eokulik && pytest -m regression -v -s
+        if: "github.event.inputs.deployment_target == 'regression'"
+      - name: run all tests
+        run: cd ui_tests_eokulik && pytest -v -s
+        if: "github.event.inputs.deployment_target == 'all'"
+        
