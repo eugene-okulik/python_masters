@@ -1,7 +1,3 @@
-import os
-
-print("Current working directory:", os.getcwd())
-
 from playwright.sync_api import Page
 from data import Data
 from start_page import StartPage
