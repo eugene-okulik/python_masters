@@ -1,0 +1,72 @@
+workflow:
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "push"'
+          when: never
+        - when: always
+
+stages:
+    - test
+    - report
+
+run_tests:
+    image: python
+    stage: test
+    allow_failure: true
+    #when: manual
+    before_script:
+        - 'curl --location --output artifacts.zip --header "PRIVATE-TOKEN: $MY_TOKEN" "https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/jobs/artifacts/main/download?job=pages"'
+        - unzip artifacts.zip
+        - chmod -R 777 public 
+        - pip install -r requirements.txt
+        - playwright install
+        - mkdir tests/allure-results && cp -r public/history tests/allure-results
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+        - apt-get update && apt-get install -y google-chrome-stable
+        - apt install -y openjdk-17-jdk openjdk-17-jre
+        - wget https://github.com/allure-framework/allure2/releases/download/2.28.0/allure-2.28.0.tgz && tar -zxvf allure-2.28.0.tgz -C /opt/ && ln -s /opt/allure-2.28.0/bin/allure /usr/bin/allure
+    script:
+        - > 
+            if [[ $SUITE == all ]];
+            then
+            cd tests && pytest -v -s --alluredir=allure-results;
+            elif [[ $SUITE == regression ]];
+            then
+            cd tests && pytest -v -s -m regression --alluredir=allure-results;
+            elif [[ $SUITE == smoke ]];
+            then
+            cd tests && pytest -v -s -m smoke --alluredir=allure-results;
+            elif [[ $SUITE == account ]];
+            then
+            cd tests && pytest -v -s -m account --alluredir=allure-results;
+            elif [[ $SUITE == ecofriendly ]];
+            then
+            cd tests && pytest -v -s -m ecofriendly --alluredir=allure-results;
+            elif [[ $SUITE == sales ]];
+            then
+            cd tests && pytest -v -s -m sales --alluredir=allure-results;
+            elif [[ $SUITE == startpage ]];
+            then
+            cd tests && pytest -v -s -m startpage --alluredir=allure-results;
+            fi
+    after_script:
+        - allure generate -c tests/allure-results -o allure-report
+    artifacts:
+        when: always
+        expire_in: 10 days
+        paths:
+            - allure-report
+            - tests/allure-results
+
+pages:
+    stage: report
+    needs:
+        - run_tests
+    script:
+        - mkdir public
+        - cp -r allure-report/* public
+    artifacts:
+        when: on_success
+        expire_in: never
+        paths:
+            - public
