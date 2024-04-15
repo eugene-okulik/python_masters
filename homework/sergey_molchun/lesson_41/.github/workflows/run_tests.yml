@@ -35,6 +35,8 @@ jobs:
           python-version: "3.12"
       - name: Install dependancies
         run: pip install -r requirements.txt
+      - name: Install playwright browsers
+        run: playwright install
       - name: run account tests
         if: "github.event.inputs.deployment_target == 'account'"
         run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
