@@ -1,0 +1,1 @@
+REPORTS_URL: https://playwright-tests-moserios-2f5ebea42d119287b7d6836899dce96af9c73.gitlab.io/
